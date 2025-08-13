@@ -1,0 +1,136 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": "73930385"
+    },
+    {
+      "id": "0435",
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2025-08-08T14:30:03.638Z",
+      "notes": "ahmed",
+      "position": {
+        "lat": "40.00843629279693",
+        "lng": "-0.0004865394427744364"
+      }
+    },
+    {
+      "id": "ad44",
+      "cityName": "Al Mansurah",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T14:30:49.455Z",
+      "notes": "me",
+      "position": {
+        "lat": "31.036167580692506",
+        "lng": "31.38402929454952"
+      }
+    },
+    {
+      "id": "b5fa",
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-08-08T15:10:14.962Z",
+      "notes": "",
+      "position": {
+        "lat": "38.76613041372937",
+        "lng": "-9.199992438197796"
+      }
+    },
+    {
+      "id": "e418",
+      "cityName": "Castello de la Plana",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2025-08-08T15:10:41.763Z",
+      "notes": "",
+      "position": {
+        "lat": "39.982250133421516",
+        "lng": "-0.042383378914030434"
+      }
+    },
+    {
+      "id": "c0db",
+      "cityName": "Al Mansurah",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T15:10:53.228Z",
+      "notes": "",
+      "position": {
+        "lat": "31.034549613464243",
+        "lng": "31.385059548209423"
+      }
+    },
+    {
+      "id": "5ab2",
+      "cityName": "Ţalkha",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T15:11:01.756Z",
+      "notes": "",
+      "position": {
+        "lat": "31.05440458208925",
+        "lng": "31.332860029439814"
+      }
+    },
+    {
+      "id": "9107",
+      "cityName": "Aga",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T15:26:43.416Z",
+      "notes": "",
+      "position": {
+        "lat": "30.94021880084978",
+        "lng": "31.289793667628288"
+      }
+    },
+    {
+      "id": "4c5f",
+      "cityName": "Al Maḩallah al Kubra",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T15:26:51.186Z",
+      "notes": "",
+      "position": {
+        "lat": "30.969955579451806",
+        "lng": "31.166846163768156"
+      }
+    },
+    {
+      "id": "8fc5",
+      "cityName": "Paphos",
+      "country": "Cyprus",
+      "emoji": "🇨🇾",
+      "date": "2025-08-08T15:28:24.240Z",
+      "notes": "",
+      "position": {
+        "lat": "34.7810996789313",
+        "lng": "32.43336476554618"
+      }
+    },
+    {
+      "id": "36ae",
+      "cityName": "Ţalkha",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2025-08-08T17:48:17.436Z",
+      "notes": "",
+      "position": {
+        "lat": "31.063227683080008",
+        "lng": "31.365828146557455"
+      }
+    }
+  ]
+}
