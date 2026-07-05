@@ -1,3 +1,4 @@
+/* ── Base ── */
 .mapContainer {
   flex: 1;
   height: 100%;
@@ -9,7 +10,31 @@
   height: 100%;
 }
 
-/* Here we want to style classes that are coming from leaflet. So we want CSS Modules to give us the ACTUAL classnames, not to add some random ID to them, because then they won't match the classnames defined inside the map. The solution is to define these classes as GLOBAL */
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .mapContainer {
+    /* still fills remaining space next to narrower sidebar */
+    flex: 1;
+    height: 100%;
+  }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .mapContainer {
+    /* map takes the TOP portion — sidebar sits below as bottom sheet */
+    width: 100%;
+    height: 58dvh;
+    flex: none;
+  }
+
+  .map {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* ── Leaflet overrides — must stay global so they match Leaflet classnames ── */
 :global(.leaflet-popup .leaflet-popup-content-wrapper) {
   background-color: var(--color-dark--1);
   color: var(--color-light--2);
@@ -35,4 +60,19 @@
 
 :global(.leaflet-popup-content-wrapper) {
   border-left: 5px solid var(--color-brand--2);
+}
+
+/* Leaflet controls — move zoom buttons so sidebar doesn't hide them on mobile */
+@media (max-width: 600px) {
+  :global(.leaflet-top.leaflet-left) {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  :global(.leaflet-control-zoom a) {
+    width: 3.2rem !important;
+    height: 3.2rem !important;
+    line-height: 3.2rem !important;
+    font-size: 1.8rem !important;
+  }
 }

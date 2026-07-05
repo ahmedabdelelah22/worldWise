@@ -1,3 +1,4 @@
+/* ── Base ── */
 .form {
   background-color: var(--color-dark--2);
   border-radius: 7px;
@@ -18,6 +19,7 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .flag {
@@ -41,4 +43,46 @@
 :global(.react-datepicker) {
   font-family: inherit;
   font-size: 1.2rem;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .form {
+    padding: 1.6rem 2rem;
+    gap: 1.6rem;
+  }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .form {
+    padding: 1.4rem 1.6rem;
+    gap: 1.4rem;
+    border-radius: 5px;
+  }
+
+  .buttons {
+    flex-direction: column-reverse; /* Back button below, primary on top */
+    gap: 0.8rem;
+  }
+
+  .buttons > * {
+    width: 100%; /* full-width buttons on mobile */
+    text-align: center;
+    justify-content: center;
+  }
+
+  .flag {
+    font-size: 2.4rem;
+    top: 2.4rem;
+  }
+
+  :global(.react-datepicker) {
+    font-size: 1.4rem; /* bigger tap targets for date picker */
+  }
+
+  :global(.react-datepicker__day) {
+    width: 3rem;
+    line-height: 3rem;
+  }
 }

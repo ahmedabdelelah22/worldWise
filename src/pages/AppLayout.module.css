@@ -1,7 +1,25 @@
+/* ── Desktop ── */
 .app {
   height: 100vh;
   padding: 2.4rem;
   overscroll-behavior-y: none;
   display: flex;
   position: relative;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .app {
+    padding: 1.6rem;
+    gap: 0;
+  }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+    padding: 0;
+    height: 100dvh; /* dynamic viewport height — handles mobile browser chrome */
+  }
 }
