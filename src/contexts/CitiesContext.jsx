@@ -110,7 +110,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "loading":
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true, error: "" };
 
     case "cities/loaded":
       return {
@@ -164,7 +164,8 @@ function CitiesProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         dispatch({ type: "cities/loaded", payload: data });
-      } catch {
+      } catch (err) {
+        console.error("Error loading cities:", err);
         dispatch({
           type: "rejected",
           payload: "There was an error loading cities...",
@@ -184,7 +185,8 @@ function CitiesProvider({ children }) {
         const res = await fetch(`${BASE_URL}/cities/${id}`);
         const data = await res.json();
         dispatch({ type: "city/loaded", payload: data });
-      } catch {
+      } catch (err) {
+        console.error("Error loading city:", err);
         dispatch({
           type: "rejected",
           payload: "There was an error loading the city...",
@@ -198,6 +200,9 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
+      // Log the city being created
+      console.log("Creating city:", newCity);
+
       const res = await fetch(`${BASE_URL}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -205,13 +210,28 @@ function CitiesProvider({ children }) {
           "Content-Type": "application/json",
         },
       });
+
+      // Check if response is ok
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
       const data = await res.json();
 
+      // Log the response data
+      console.log("City created successfully:", data);
+
+      // Verify the response has required fields
+      if (!data.id) {
+        throw new Error("Response data missing 'id' field");
+      }
+
       dispatch({ type: "city/created", payload: data });
-    } catch {
+    } catch (err) {
+      console.error("Error creating city:", err);
       dispatch({
         type: "rejected",
-        payload: "There was an error creating the city...",
+        payload: err.message || "There was an error creating the city...",
       });
     }
   }
@@ -220,15 +240,21 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
+      const res = await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
 
+      // Check if response is ok
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
       dispatch({ type: "city/deleted", payload: id });
-    } catch {
+    } catch (err) {
+      console.error("Error deleting city:", err);
       dispatch({
         type: "rejected",
-        payload: "There was an error deleting the city...",
+        payload: err.message || "There was an error deleting the city...",
       });
     }
   }

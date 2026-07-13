@@ -1,3 +1,9 @@
+/* Product.module.css - RESPONSIVE VERSION */
+
+/* ============================================================================
+   DESKTOP STYLES (Base - 1024px+)
+   ============================================================================ */
+
 .product {
   margin: 2.5rem;
   padding: 2.5rem 5rem;
@@ -16,6 +22,8 @@
 
 .product img {
   width: 100%;
+  height: auto;
+  display: block;
 }
 
 .product h2 {
@@ -32,3 +40,224 @@
 .product section a {
   margin-top: 2rem;
 }
+
+/* ============================================================================
+   TABLET STYLES (768px - 1024px)
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .product {
+    padding: 2rem 3rem;
+  }
+
+  .product section {
+    width: clamp(60rem, 90%, 85rem);
+    margin: 5rem auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .product h2 {
+    font-size: 3.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .product p {
+    font-size: 1.4rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+/* ============================================================================
+   MOBILE STYLES (480px - 768px)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .product {
+    margin: 1.5rem;
+    padding: 1.5rem 1.5rem;
+    min-height: calc(100vh - 3rem);
+  }
+
+  .product section {
+    width: 100%;
+    margin: 4rem auto 2rem;
+    display: grid;
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 2.5rem;
+    align-items: auto;
+  }
+
+  .product img {
+    width: 100%;
+    height: auto;
+    order: -1; /* Image comes first on mobile */
+  }
+
+  .product h2 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 1.6rem;
+  }
+
+  .product p {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .product section a {
+    margin-top: 1.5rem;
+  }
+}
+
+/* ============================================================================
+   SMALL MOBILE STYLES (< 480px)
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .product {
+    margin: 1rem;
+    padding: 1rem 1rem;
+    min-height: calc(100vh - 2rem);
+  }
+
+  .product section {
+    width: 100%;
+    margin: 2.5rem auto 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
+
+  .product p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .product section a {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================================================
+   EXTRA SMALL MOBILE (< 375px)
+   ============================================================================ */
+
+@media (max-width: 375px) {
+  .product {
+    margin: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .product section {
+    margin: 2rem auto 1rem;
+    gap: 1.2rem;
+  }
+
+  .product h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .product p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE BEHAVIOR SUMMARY
+   ============================================================================
+   
+   DESKTOP (1024px+):
+   - 2 columns (image + text side-by-side)
+   - Large gap (7rem)
+   - Heading: 4rem
+   - Text: 1.6rem
+   - Padding: 2.5rem 5rem
+   
+   TABLET (768-1024px):
+   - 2 columns (still side-by-side)
+   - Medium gap (5rem)
+   - Heading: 3.2rem
+   - Text: 1.4rem
+   - Padding: 2rem 3rem
+   
+   MOBILE (480-768px):
+   - 1 column (stacked vertically)
+   - Small gap (2.5rem)
+   - Heading: 2.2rem
+   - Text: 1.2rem
+   - Padding: 1.5rem
+   - Image comes first (order: -1)
+   
+   SMALL MOBILE (<480px):
+   - 1 column (stacked)
+   - Tiny gap (1.5rem)
+   - Heading: 1.8rem
+   - Text: 1rem
+   - Padding: 1rem
+   
+   ============================================================================ */
+
+/* ============================================================================
+   OPTIONAL: Alternative approach using CSS variables (advanced)
+   ============================================================================
+   
+   You can also use CSS variables for a more maintainable approach:
+   
+   .product {
+     --section-gap: 7rem;
+     --heading-size: 4rem;
+     --text-size: 1.6rem;
+     --padding-inline: 5rem;
+     --margin-section: 6rem;
+   }
+
+   @media (max-width: 1024px) {
+     .product {
+       --section-gap: 5rem;
+       --heading-size: 3.2rem;
+       --text-size: 1.4rem;
+       --padding-inline: 3rem;
+       --margin-section: 5rem;
+     }
+   }
+
+   @media (max-width: 768px) {
+     .product {
+       --section-gap: 2.5rem;
+       --heading-size: 2.2rem;
+       --text-size: 1.2rem;
+       --padding-inline: 1.5rem;
+       --margin-section: 4rem;
+     }
+   }
+
+   Then in your CSS:
+   .product section {
+     gap: var(--section-gap);
+     margin: var(--margin-section) auto;
+   }
+
+   .product h2 {
+     font-size: var(--heading-size);
+   }
+
+   .product p {
+     font-size: var(--text-size);
+   }
+
+   ============================================================================ */
